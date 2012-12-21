@@ -1,0 +1,64 @@
+# Some Rcmdr menus for the TeachingDemos package
+# When the plug-in is loaded, these menus are merged with the standard Rcmdr menus
+
+#   type    menu/item      operation/parent  label                              command/menu                activation    install?
+menu    demosMenu       topMenu         ""                                      ""                          ""                      "" 
+item    topMenu         cascade         "SM"                                 demosMenu                   ""                      ""
+
+# sous menu categorical
+menu    catMenu      demosMenu ""                                    ""                          ""                  ""
+item    catMenu      command         "Graphe en camembert"                pieChart2                    ""                      ""
+item    catMenu      command         "Graphe en barres"                  barGraph2                   ""                      "" 
+item    catMenu      command         "Graphe en points"                       dotGraph                        ""                      ""
+item    catMenu      command         "Statistiques (%)"                   frequencyDistribution2                    ""                      ""
+item    demosMenu   cascade     "Catégories (C)"               catMenu                  ""                      ""
+
+
+# sous menu numeric
+menu    numMenu      demosMenu ""                                    ""                          ""                  ""
+item    numMenu      command         "Graphe en histogramme"                Histogram2                    ""                      ""
+item    numMenu      command         "Graphe en boite"                  boxPlot2                   ""                      "" 
+item    numMenu      command         "Graphe des quantiles"                       QQPlot2                        ""                      ""
+item    numMenu      command         "Graphe en code barre"                   barCode                    ""                      ""
+item    numMenu      command         "Statistiques (M,SD...)"                   numericalSummaries                    ""                      ""
+item    demosMenu   cascade     "Nombres (N)"               numMenu                  ""                      ""
+
+# sous menu numeric categorical
+menu    ncMenu      demosMenu ""                                    ""                          ""                  ""
+item    ncMenu      command         "Collection de boites"                boxPlot2                    ""                      ""
+item    ncMenu      command         "Collection de codes barres"                  barCode2                   ""                      "" 
+item    ncMenu      command         "Statistiques (par groupe)"                       numericalSummaries                        ""                      ""
+item    ncMenu      command         "Significativité"                   oneWayAnova2                    ""                      ""
+item    demosMenu   cascade     "N*C"               ncMenu                  ""                      ""
+
+# sous menu categorical categorical
+menu    ccMenu      demosMenu ""                                    ""                          ""                  ""
+item    ccMenu      command         "Graphes (C*C)"                twoWayTable1                    ""                      ""
+item    ccMenu      command         "Table de contingence"                       twoWayTable2                        ""                      ""
+item    ccMenu      command         "Significativité"                   twoWayTable3                    ""                      ""
+item    demosMenu   cascade     "C*C"               ccMenu                  ""                      ""
+
+# sous menu numeric numeric
+menu    nnMenu      demosMenu ""                                    ""                          ""                  ""
+item    nnMenu      command         "Nuage de points"                scatterPlot2                    ""                      ""
+item    nnMenu      command         "Statistiques de relation (r; y=ax+b)"                  statNN                   ""                      "" 
+item    nnMenu      command         "Significativité"                       LM2                        ""                      ""
+item    demosMenu   cascade     "N*N"               nnMenu                  ""                      ""
+
+# sous menu satisfaction
+menu    satisfMenu      demosMenu ""                                    ""                          ""                  ""
+item    satisfMenu      command         "Graphe des moyennes (Table Likert)"                plotLikert                    ""                      ""
+item    satisfMenu      command         "Graphe des corrélations (Table Likert)"                plotCor                    ""                      ""
+item    satisfMenu      command         "IP analysis"                  enConstruction                   ""                      "" 
+item    satisfMenu      command         "Tetraclass analysis"                       enConstruction                        ""                      ""
+item    satisfMenu      command         "Simple approach"                   enConstruction                    ""                      ""
+item    satisfMenu      command         "Modelling"                   enConstruction                    ""                      ""
+item    demosMenu   cascade     "Etude de Satisfaction (Likert)"               satisfMenu                  ""                      ""
+
+# sous menu prix
+menu    prixMenu      demosMenu ""                                    ""                          ""                  ""
+item    prixMenu      command         "Histogram"                enConstruction                    ""                      ""
+item    prixMenu      command         "Time series"                  enConstruction                   ""                      "" 
+item    prixMenu      command         "Maximum"                       enConstruction                        ""                      ""
+item    prixMenu      command         "Psychological price"                   enConstruction                    ""                      ""
+item    demosMenu   cascade     "Etude de prix"               prixMenu                  ""                      ""
